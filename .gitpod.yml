@@ -2,6 +2,11 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: Start Services
+    init: |
+      docker-compose pull --quiet
+    command: |
+      docker-compose up -d db
   # Check for pipenv command and configuration files
   - init: |
       command -v pipenv >/dev/null 2>&1 && {
